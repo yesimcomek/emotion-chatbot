@@ -44,7 +44,7 @@ class ProbabilisticClassifier(EmotionClassifier):
 
     def _to_labels(self, probs: np.ndarray) -> list[frozenset[str]]:
         hit = probs >= self.thresholds
-        return [frozenset(e for e, h in zip(EMOTIONS, row) if h) for row in hit]
+        return [frozenset(e for e, h in zip(EMOTIONS, row, strict=True) if h) for row in hit]
 
     def predict_labels_many(self, texts: list[str]) -> list[frozenset[str]]:
         return self._to_labels(self.predict_proba(texts)) if texts else []
@@ -53,10 +53,10 @@ class ProbabilisticClassifier(EmotionClassifier):
         return self.predict_labels_many([text])[0]
 
     def scores(self, text: str) -> dict[str, float]:
-        return dict(zip(EMOTIONS, self.predict_proba([text])[0].tolist()))
+        return dict(zip(EMOTIONS, self.predict_proba([text])[0].tolist(), strict=True))
 
     def analyze(self, text: str) -> Prediction:
         probs = self.predict_proba([text])
         labels = self._to_labels(probs)[0]
-        scores = dict(zip(EMOTIONS, probs[0].tolist()))
+        scores = dict(zip(EMOTIONS, probs[0].tolist(), strict=True))
         return Prediction(self._primary(labels, scores) if labels else NEUTRAL, labels)

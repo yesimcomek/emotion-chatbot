@@ -31,7 +31,7 @@ def available_models() -> dict[str, EmotionClassifier]:
 def model_scores(model: EmotionClassifier, text: str) -> dict[str, float]:
     """Per-emotion confidences for display (rules are binary: detected or not)."""
     if hasattr(model, "predict_proba"):
-        return dict(zip(EMOTIONS, model.predict_proba([text])[0].tolist()))
+        return dict(zip(EMOTIONS, model.predict_proba([text])[0].tolist(), strict=True))
     detected = model.predict_labels(text)
     return {e: (1.0 if e in detected else 0.0) for e in EMOTIONS}
 

@@ -50,7 +50,7 @@ def main() -> None:
     # 2) Noisy lexicon words: precision of each word that fired on val.
     # (emotion, word) -> [occurrences, correct]
     stats: dict[tuple[str, str], list[int]] = defaultdict(lambda: [0, 0])
-    for text, gold in zip(val.texts, val.labels):
+    for text, gold in zip(val.texts, val.labels, strict=True):
         for token in set(_TOKEN.findall(text.lower())):
             for emotion, _ in _INDEX.get(token, []):
                 stats[(emotion, token)][0] += 1
