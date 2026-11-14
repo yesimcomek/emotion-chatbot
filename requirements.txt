@@ -1,3 +1,0 @@
-# Dieses Projekt verwendet keine externen Bibliotheken.
-# Nur das Python-Standardmodul 're' wird verwendet.
-# Getestet mit: Python >= 3.7
