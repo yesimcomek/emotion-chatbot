@@ -17,7 +17,7 @@ six emotions (anger, disgust, fear, joy, sadness, surprise), multi-label, empty 
 
 > **Status:** rules and TF-IDF are complete and evaluated. The BERT fine-tuning code is implemented
 > but its results are **not yet included**, because the development machine (8 GB RAM, almost full disk)
-> could not complete a run; see [Reproducing the BERT run](#bert-training).
+> could not complete a run; see [BERT training](#bert-training).
 
 ## Results (test split, n = 2,603)
 
