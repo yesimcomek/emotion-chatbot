@@ -1,3 +1,16 @@
 venv/
+.venv/
 __pycache__/
 *.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.idea/
+.DS_Store
+
+# Data and trained models are reproduced by scripts, not committed
+data/raw/
+models/
+results/*.tmp
