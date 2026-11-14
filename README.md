@@ -169,7 +169,8 @@ results/         metrics, tables, error analysis
 ## Limitations and ethics
 
 * **Not a mental-health tool.** The chatbot's replies are canned templates triggered by a classifier that is
-  wrong about half the time. Do not use it for anything that matters to someone's wellbeing.
+  makes frequent errors (macro-F1 ≈ 0.48 at best on the test set). Do not use it for anything that
+  matters to someone's wellbeing.
 * Labels are subjective and the data is mostly social-media text, much of it political. Models will not
   transfer to other domains (customer reviews, clinical text) without re-evaluation.
 * Annotator demographics and cultural context affect what counts as, e.g., "disgust".
